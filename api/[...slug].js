@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', auth);
-app.use('/api/events', events);
+//app.use('/api/events', events);
 app.use('/api/users', users);
 app.use('/api/registrations', registrations);
 app.use('/api/media', media);
