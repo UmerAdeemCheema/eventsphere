@@ -3,14 +3,18 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 
+function normalizeRoute(route) {
+  return route && route.default ? route.default : route;
+}
+
 // Import compiled route modules from ./dist
-const events = require('../dist/routes/events');
-const users = require('../dist/routes/users');
-const registrations = require('../dist/routes/registrations');
-const media = require('../dist/routes/media');
-const announcements = require('../dist/routes/announcements');
-const admin = require('../dist/routes/admin');
-const auth = require('../dist/routes/auth');
+const events = normalizeRoute(require('../dist/routes/events'));
+const users = normalizeRoute(require('../dist/routes/users'));
+const registrations = normalizeRoute(require('../dist/routes/registrations'));
+const media = normalizeRoute(require('../dist/routes/media'));
+const announcements = normalizeRoute(require('../dist/routes/announcements'));
+const admin = normalizeRoute(require('../dist/routes/admin'));
+const auth = normalizeRoute(require('../dist/routes/auth'));
 
 const app = express();
 
