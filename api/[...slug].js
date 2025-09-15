@@ -32,7 +32,10 @@ app.use('/api/admin', admin);
 // simple error handler (serverless friendly)
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(err.status || 500).json({ message: err.message || 'Internal Server Error' });
+  res
+    .status(err.status || 500)
+    .json({ message: err.message || 'Internal Server Error' });
 });
 
-module.exports.handler = serverless(app);
+// Export for Vercel — must be a default export
+export default serverless(app);
