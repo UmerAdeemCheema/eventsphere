@@ -1,4 +1,4 @@
-// const serverless = require('serverless-http');
+const serverless = require('serverless-http');
 const express = require('express');
 const db_1 = require("../dist/db");
 const authMiddleware_1 = require("../dist/middleware/authMiddleware");
@@ -97,4 +97,4 @@ app.get('/api/ssrf_to_xss', (req, res) => {
 });
 
 // ✅ Correct export for Vercel (CommonJS)
-module.exports = app;
+module.exports = serverless(app);
