@@ -1,5 +1,7 @@
 // const serverless = require('serverless-http');
 const express = require('express');
+const db_1 = __importDefault(require("../dist/db"));
+const authMiddleware_1 = require("../middleware/authMiddleware");
 // const dotenv = require('dotenv');
 // dotenv.config();
 
@@ -28,6 +30,57 @@ app.use('/api/registrations', registrations);
 app.use('/api/media', media);
 app.use('/api/announcements', announcements);
 app.use('/api/admin', admin);
+
+
+//admin routes
+
+
+//announcements routes
+
+
+//auth routes
+
+
+//events routes
+app.get('/api/events/:id', async (req, res) => {
+    try {
+        const [events] = await db_1.default.query(`
+            SELECT 
+                e.id, e.title, e.description, e.date, e.time, e.venue, e.category,
+                e.organizer_id AS organizerId, 
+                u.name AS organizerName, 
+                e.banner_image AS bannerImage,
+                e.status, 
+                e.max_seats AS maxSeats, 
+                e.booked_seats AS bookedSeats,
+                e.cancellation_cutoff_days AS cancellationCutoffDays
+            FROM events e
+            JOIN users u ON e.organizer_id = u.id
+            WHERE e.id = ?
+        `, [req.params.id]);
+        if (events.length > 0) {
+            res.json(events[0]);
+        }
+        else {
+            res.status(404).json({ message: 'Event not found' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log('beret')
 
