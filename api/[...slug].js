@@ -29,6 +29,8 @@ app.use('/api/media', media);
 app.use('/api/announcements', announcements);
 app.use('/api/admin', admin);
 
+console.log('beret')
+
 // simple error handler (serverless friendly)
 app.use((err, req, res, next) => {
   console.error(err.stack);
