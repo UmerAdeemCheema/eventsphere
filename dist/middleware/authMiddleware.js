@@ -47,4 +47,4 @@ const organizer = (req, res, next) => {
         res.status(403).json({ message: 'Not authorized as an organizer' });
     }
 };
-module.exports = organizer;
+exports.organizer = organizer;
