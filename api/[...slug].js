@@ -37,5 +37,5 @@ app.use((err, req, res, next) => {
     .json({ message: err.message || 'Internal Server Error' });
 });
 
-// Export for Vercel — must be a default export
-export default serverless(app);
+// ✅ Correct export for Vercel (CommonJS)
+module.exports = serverless(app);
