@@ -1,6 +1,6 @@
 // const serverless = require('serverless-http');
 const express = require('express');
-const db_1 = __importDefault(require("../dist/db"));
+const db_1 = require("../dist/db");
 const authMiddleware_1 = require("../middleware/authMiddleware");
 // const dotenv = require('dotenv');
 // dotenv.config();
