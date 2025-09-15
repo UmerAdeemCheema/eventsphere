@@ -8,7 +8,7 @@ const express = require('express');
 // }
 
 // // Import compiled route modules from ./dist
-// const events = normalizeRoute(require('../dist/routes/events'));
+const events = normalizeRoute(require('../dist/routes/events'));
 // const users = normalizeRoute(require('../dist/routes/users'));
 // const registrations = normalizeRoute(require('../dist/routes/registrations'));
 // const media = normalizeRoute(require('../dist/routes/media'));
