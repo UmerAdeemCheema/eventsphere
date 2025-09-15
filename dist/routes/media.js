@@ -34,4 +34,4 @@ router.post('/', authMiddleware_1.protect, authMiddleware_1.organizer, async (re
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
-exports.default = router;
+module.exports = router;

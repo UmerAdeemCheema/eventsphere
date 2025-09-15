@@ -119,4 +119,4 @@ router.post('/favorites/events', authMiddleware_1.protect, async (req, res) => {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
-exports.default = router;
+module.exports = router;
